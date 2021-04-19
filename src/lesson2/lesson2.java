@@ -30,7 +30,7 @@ public class lesson2 {
         }
     }
 
-    private static void printString(String s, int n) {
+    private static void printRepeatedString(String text, int repeatCount) {
         for(int i=0;i<n;i++){
             System.out.println(s);
         }
