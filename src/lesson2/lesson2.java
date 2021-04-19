@@ -11,8 +11,7 @@ public class lesson2 {
 
     private static boolean compareDiapazon(int a, int b) {
         int result = a + b;
-        if (result >= 10 && result <= 20) return true;
-        else return false;
+        return result >= 10 && result <= 20;
     }
 
     private static void isPositivePrint(int i) {
