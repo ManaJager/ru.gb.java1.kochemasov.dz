@@ -23,7 +23,7 @@ public class lesson2 {
     }
 
     private static boolean isNegative(int i) {
-        if ((i < 0)) {
+        return i < 0;
             return true;
         } else {
             return false;
