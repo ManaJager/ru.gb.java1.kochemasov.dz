@@ -88,7 +88,7 @@ public class TicTacToe {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Координаты должны быть целыми числами!");
-            } catch (ArrayIndexOutOfBoundsException e){
+            } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Должны быть введены два числа, разделенные одним пробелом!");
             }
         } while (true);
@@ -96,10 +96,10 @@ public class TicTacToe {
 
     private static boolean checkValues(int x, int y, boolean notify) {
         if (x < 0 || x >= SIZE || y < 0 || y >= SIZE) {
-            if(notify) System.out.println("Координаты должны быть в диапазоне 1 - " + SIZE);
+            if (notify) System.out.println("Координаты должны быть в диапазоне 1 - " + SIZE);
             return false;
         } else if (map[x][y] != DOT_EMPTY) {
-            if(notify) System.out.println("Поле уже занято, попробуйте еще раз");
+            if (notify) System.out.println("Поле уже занято, попробуйте еще раз");
             return false;
         } else return true;
     }
@@ -125,16 +125,20 @@ public class TicTacToe {
             for (int j = 0; j < SIZE; j++) {
                 if (i == j && map[i][j] == symbol) score++;
             }
+            if (score == SIZE) {
+                return true;
+            } else score = 0;
         }
-        if(score==SIZE) return true; else score = 0;
 
         //Диагональ 0х-х0
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if (i + j == SIZE - 1 && map[i][j] == symbol) score++;
             }
+            if (score == SIZE) {
+                return true;
+            } else score = 0;
         }
-        if(score==SIZE) return true; else score = 0;
 
         //Горизонтали
         for (int i = 0; i < SIZE; i++) {
@@ -142,7 +146,9 @@ public class TicTacToe {
                 if (map[i][j] == symbol) score++;
                 else score = 0;
             }
-            if(score==SIZE) return true;
+            if (score == SIZE) {
+                return true;
+            }
         }
 
         //Вертикали
@@ -151,7 +157,9 @@ public class TicTacToe {
                 if (map[j][i] == symbol) score++;
                 else score = 0;
             }
-            if(score==SIZE) return true; else score = 0;
+            if (score == SIZE) {
+                return true;
+            } else score = 0;
         }
         return false;
     }
