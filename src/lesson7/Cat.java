@@ -11,19 +11,22 @@ public class Cat {
     }
 
     public int getAppetite(){
-        return 0;
+        return this.appetite;
     }
 
     public void eat(Plate p) {
-        if(p.decreaseFood(appetite)){
+        if(p.decreaseFood(appetite) && !wellFedCat){
             System.out.println("Cat " + name + " began eat");
             wellFedCat = true;
+            isThisCatWellFed();
         }
-        else {
-            wellFedCat = false;
+        else if(!wellFedCat){
             System.out.println("There's not enough food. Cat " + name + " is still hungry");
+            isThisCatWellFed();
         }
-        isThisCatWellFed();
+        else if(wellFedCat){
+            System.out.println("Cat " + name + " is already well-fed");
+        }
     }
 
     public void isThisCatWellFed(){
